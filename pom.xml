@@ -42,12 +42,5 @@
       <version>2.25.2</version>
       <scope>compile</scope>
     </dependency>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </reporting>
+      </dependencies>
 </project>
