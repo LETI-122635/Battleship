@@ -2,7 +2,7 @@
 
 Basic academic version of Battleship game to build upon.
 
-A criação do repositório foi relaizada pelo aluno Rui Andrez, número 122635, devido a ser o único que ainda não realizou nenhuma criação de repositório nas fichas práticas anteriores
+A criação do repositório foi realizada pelo aluno Rui Andrez, número 122635, devido a ser o único que ainda não realizou nenhuma criação de repositório nas fichas práticas anteriores
 
 
 Ficha 4
