@@ -56,15 +56,15 @@ class GameTest {
         assertEquals(0, game.getInvalidShots());
         assertEquals(0, game.getRepeatedShots());
 
-        // não chamamos getHits/getSunkShips aqui porque ainda estão null internamente
+        // getHits/getSunkShips não são chamados aqui porque os Integer internos ainda podem ser null
     }
 
     // ------------------------------------------------------------
-    // fire: tiro inválido
+    // fire: tiro inválido (fora do tabuleiro, row < 0)
     // ------------------------------------------------------------
 
     @Test
-    @DisplayName("fire incrementa invalidShots para disparos fora do tabuleiro")
+    @DisplayName("fire incrementa invalidShots para disparos fora do tabuleiro (linha negativa)")
     void fireCountsInvalidShots() {
         IPosition invalid = pos(-1, 0); // linha negativa → inválido
 
@@ -77,7 +77,25 @@ class GameTest {
     }
 
     // ------------------------------------------------------------
-    // fire: tiro válido que falha
+    // fire: tiro inválido (fora do tabuleiro, row > BOARD_SIZE)
+    // ------------------------------------------------------------
+
+    @Test
+    @DisplayName("fire incrementa invalidShots para disparos com coordenada maior que BOARD_SIZE")
+    void fireCountsInvalidShotsAboveBoard() {
+        // Fleet.BOARD_SIZE é 10 — uma posição com row = 11 é inválida
+        IPosition invalid = pos(IFleet.BOARD_SIZE + 1, 0);
+
+        IShip result = game.fire(invalid);
+
+        assertNull(result);
+        assertEquals(1, game.getInvalidShots());
+        assertEquals(0, game.getRepeatedShots());
+        assertTrue(game.getShots().isEmpty());
+    }
+
+    // ------------------------------------------------------------
+    // fire: tiro válido que falha (miss)
     // ------------------------------------------------------------
 
     @Test
@@ -95,22 +113,42 @@ class GameTest {
     }
 
     // ------------------------------------------------------------
-    // fire: tiro repetido
+    // fire: repeatedShot usando duas instâncias diferentes mas iguais
     // ------------------------------------------------------------
 
     @Test
-    @DisplayName("fire conta repeatedShots quando a mesma posição é disparada duas vezes")
-    void fireCountsRepeatedShots() {
-        IPosition p = pos(1, 1);
+    @DisplayName("fire conta repeatedShots quando a mesma coordenada é disparada duas vezes (instâncias diferentes)")
+    void fireCountsRepeatedShotsDifferentInstanceEquals() {
+        IPosition p1 = pos(2, 2);
+        IPosition p2 = new Position(2, 2); // nova instância com mesmas coordenadas
 
-        game.fire(p);        // primeiro tiro válido
-        IShip result = game.fire(p);  // segundo tiro na mesma posição
+        game.fire(p1);        // primeiro tiro válido
+        IShip result = game.fire(p2);  // segundo tiro na mesma posição (equals deve ser true)
 
         assertNull(result);
         assertEquals(0, game.getInvalidShots());
         assertEquals(1, game.getRepeatedShots());
         assertEquals(1, game.getShots().size()); // só guardou uma vez
-        assertEquals(p, game.getShots().get(0));
+        assertEquals(p1, game.getShots().get(0));
+    }
+
+    // ------------------------------------------------------------
+    // fire: tiro num limite (row/col == BOARD_SIZE) — o código actual trata como válido
+    // ------------------------------------------------------------
+
+    @Test
+    @DisplayName("fire considera válido um tiro em (BOARD_SIZE, BOARD_SIZE) dado o <= presente no código")
+    void fireAcceptsBoardSizeCoordinateAsValid() {
+        IPosition boundary = pos(IFleet.BOARD_SIZE, IFleet.BOARD_SIZE);
+
+        IShip result = game.fire(boundary);
+
+        // É tratado como válido pelo método validShot actual
+        assertNull(result);
+        assertEquals(0, game.getInvalidShots());
+        assertEquals(0, game.getRepeatedShots());
+        assertEquals(1, game.getShots().size());
+        assertEquals(boundary, game.getShots().get(0));
     }
 
     // ------------------------------------------------------------
@@ -202,6 +240,7 @@ class GameTest {
     @Test
     @DisplayName("printValidShots imprime os tiros válidos sem lançar exceção")
     void printValidShotsDoesNotThrow() {
+        // usa posições normais (0..BOARD_SIZE-1) para evitar ArrayIndexOutOfBounds em printBoard
         game.fire(pos(0, 0));
         game.fire(pos(1, 1));
 
@@ -216,6 +255,5 @@ class GameTest {
 
         assertDoesNotThrow(() -> game.printFleet());
     }
-
 
 }
