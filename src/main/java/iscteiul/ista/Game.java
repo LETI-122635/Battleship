@@ -1,7 +1,9 @@
 /**
  *
  */
-package iscteiul.ista.battleship;
+package iscteiul.ista;
+
+import iscteiul.ista.battleship.*;
 
 import java.util.ArrayList;
 import java.util.List;
