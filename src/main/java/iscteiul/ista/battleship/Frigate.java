@@ -24,6 +24,7 @@ public class Frigate extends Ship {
                 for (int c = 0; c < SIZE; c++)
                     getPositions().add(new Position(pos.getRow(), pos.getColumn() + c));
                 break;
+                //testes nao chegam aqui
             default:
                 throw new IllegalArgumentException("ERROR! invalid bearing for thr frigate");
         }

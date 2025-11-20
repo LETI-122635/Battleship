@@ -13,7 +13,7 @@ public class Galleon extends Ship {
      */
     public Galleon(Compass bearing, IPosition pos) throws IllegalArgumentException {
         super(Galleon.NAME, bearing, pos);
-
+        //testes nao chegam aqui porque o ship ja manda uma exceçao
         if (bearing == null)
             throw new NullPointerException("ERROR! invalid bearing for the galleon");
 
@@ -30,7 +30,7 @@ public class Galleon extends Ship {
             case WEST:
                 fillWest(pos);
                 break;
-
+            //os testes nao chegam aqui
             default:
                 throw new IllegalArgumentException("ERROR! invalid bearing for the galleon");
         }
