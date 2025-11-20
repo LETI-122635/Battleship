@@ -6,6 +6,7 @@ package iscteiul.ista.battleship;
 import java.util.Scanner;
 
 
+import iscteiul.ista.Game;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
