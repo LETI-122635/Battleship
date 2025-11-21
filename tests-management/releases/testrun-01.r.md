@@ -18,8 +18,12 @@
     * C5 CarrackTest
     * C6 FrigateTest
     * C7 GalleonTest
-* S4 Tasks test case
-    * C8 TasksTest
+* S4 Game test case
+    * C8 ShipTest
+    * C9 GameTest
+    * C10 PositionTest
+    * C11 CompassTest
+    * C12 FleetTest
 
 ## TMS-ID: RUN-UNIT
 ## Tags: #testrun #unit-tests
