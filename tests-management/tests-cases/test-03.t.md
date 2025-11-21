@@ -85,6 +85,8 @@ passed 28/28
 
 ## Description
 Unit test for ship management logic.
+passed 14/14
+@LETI-106804
 
 ## TMS-ID: C9
 ## Tags: #tasks #unit-tests
