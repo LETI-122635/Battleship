@@ -10,10 +10,14 @@
 ## TMS-ID: S3
 ## Tags: #unit-tests #ships
 
-# S4 Tasks test case
+# S4 Game test case
 
 ## Test cases
-* C8 TasksTest
+* C8 ShipTest
+* C9 GameTest
+* C10 PositionTest
+* C11 CompassTest
+* C12 FleetTest
 
 ## TMS-ID: S4
 ## Tags: #unit-tests #tasks
@@ -46,6 +50,8 @@ Unit test for Carrack behaviour.
 
 ## Description
 Unit test for Frigate behaviour.
+passed 5/5
+@LEI-122627
 
 ## TMS-ID: C6
 ## Tags: #unit-tests #ships
@@ -54,14 +60,55 @@ Unit test for Frigate behaviour.
 
 ## Description
 Unit test for Galleon behaviour.
-
+passed 6/6
+@LEI-122627
 ## TMS-ID: C7
 ## Tags: #unit-tests #ships
 
-# C8 TasksTest
+# C8 ShipTest
 
 ## Description
 Unit test for task management logic.
+passed 28/28
+@LEI-122627
 
 ## TMS-ID: C8
+## Tags: #tasks #unit-tests
+
+# C9 GameTest
+
+## Description
+Unit test for ship management logic.
+
+## TMS-ID: C9
+## Tags: #tasks #unit-tests
+
+# C10 Position
+
+## Description
+Unit test for position logic.
+passed 14/14
+@LETI-122635
+
+## TMS-ID: C10
+## Tags: #tasks #unit-tests
+
+# C11 Compass
+
+## Description
+Unit test for compass logic.
+passed 4/4
+@LETI-122635
+
+## TMS-ID: C11
+## Tags: #tasks #unit-tests
+
+# C12 FleetTest
+
+## Description
+Unit test for fleet management logic.
+passed 13/13
+@LETI-122635
+
+## TMS-ID: C12
 ## Tags: #tasks #unit-tests
