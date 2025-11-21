@@ -26,6 +26,8 @@
 
 ## Description
 Unit test for Barge behaviour.
+Passed 6/6
+@LETI-122639
 
 ## TMS-ID: C3
 ## Tags: #unit-tests #ships
@@ -34,6 +36,8 @@ Unit test for Barge behaviour.
 
 ## Description
 Unit test for Caravel behaviour.
+Passed 5/5
+@LETI-122639
 
 ## TMS-ID: C4
 ## Tags: #unit-tests #ships
@@ -42,6 +46,8 @@ Unit test for Caravel behaviour.
 
 ## Description
 Unit test for Carrack behaviour.
+Passed 5/5
+@LETI-122639
 
 ## TMS-ID: C5
 ## Tags: #unit-tests #ships
