@@ -14,3 +14,5 @@ Authors:
 - LETI-122627 Gonçalo Guilherme
 - LETI-122635 Rui Andrez
 - LETI-106804 Carlos Correia
+
+## Nota: Não foram feitas classes de testes para as interfaces uma vez que já possuem todas as métricas a 100%
